@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block centermain %}
+ <h4>Register Page.</h4>
+ <hr/>
+
+ {% if register_error %}
+ <div class="bg-danger border border-light text-center text-light">
+   {{ register_error }}
+ </div>
+ {% endif %}
+ <form action="/register" method="POST" class="m-5">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" name="username">
+    
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+    <button type="submit" class="btn btn-outline-sucess">Register</button>
+  </form>
+{% endblock centermain %}
