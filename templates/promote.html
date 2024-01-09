@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block centermain %}
+ <h4>Promotion Page.</h4>
+ <hr/>
+ <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">USERNAME</th>
+        <th scope="col">PASSWORD</th>
+        <th scope="col">ADMIN</th>
+        <th scope="col">UPDATE</th>
+        <th scope="col">DELETE</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% if all_employees %}
+           {% for emp in all_employees %}
+            <tr>
+              <th scope="row">{{ emp["id"] }}</th>
+              <td>{{ emp["username"] }}</td>
+              <td>{{ emp["password"] }}</td>
+              <td>{{ emp["admin"] }}</td>
+              <td><a class="btn btn-sm btn-outline-success" href="{{ url_for('promotetoadmin', empid = emp['id']) }}">Promote</a></td>
+              <td><a class="btn btn-sm btn-outline-danger" href="{{ url_for('deleteuser', empid = emp['id']) }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+       {% endif %}
+    </tbody>
+  </table>
+
+
+{% endblock centermain %}
